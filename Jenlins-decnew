@@ -1,0 +1,20 @@
+pipeline{
+    agent any
+    stages{
+        stage("GIT checkout"){
+            steps{
+                
+                git credentialsId: 'a84a0f2a-d524-48f4-a008-efb94c058bc4', url: 'https://github.com/1829jayaprakash/web.git'
+                
+            }
+        }
+        stage("Maven Build"){
+            steps{
+                
+                sh "mvn clean package"
+                
+            }
+         }
+    }
+}
+
